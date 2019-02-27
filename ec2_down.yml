@@ -1,0 +1,25 @@
+--- 
+- hosts: local
+  connection: local
+  gather_facts: False
+  vars:
+    instance_ids:
+      - 'i-0b28b0e17e55f558f'
+    security_group: webservers_sg
+    image: ami-0080e4c5bc078760e
+    keypair: MyEC2keyPair	
+    region: us-east-1
+    count: 1
+  vars_files:
+    - aws_keys.yml
+  tasks:
+    - name: Stop EC2 Instance
+      ec2:
+        aws_access_key: "{{ aws_access_key }}"
+        aws_secret_key: "{{ aws_secret_key }}"
+        group: "{{ security_group }}"
+        instance_ids: '{{ instance_ids }}'
+        wait: true
+        region: "{{ region }}"
+        state: stopped
+      register: ec2 Collapse Message Input
