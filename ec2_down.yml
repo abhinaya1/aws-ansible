@@ -4,7 +4,7 @@
   gather_facts: False
   vars:
     instance_ids:
-      - 'i-0b28b0e17e55f558f'
+      - 'i-0f1c043a2f5dfed07'
     security_group: webservers_sg
     image: ami-0080e4c5bc078760e
     keypair: MyEC2keyPair	
